@@ -1,0 +1,8 @@
+**.terraform**
+/localstack-compose/volume/**
+*.tfstate
+/src/.dist/**
+**/node_modules/
+*.backup
+dump.json
+package-lock.json
