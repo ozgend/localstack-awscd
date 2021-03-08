@@ -1,0 +1,14 @@
+{
+  "name": "query-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ozgend",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.858.0"
+  }
+}
