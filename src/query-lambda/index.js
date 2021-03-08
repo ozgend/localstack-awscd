@@ -46,15 +46,11 @@ const errorResponse = (err) => {
     return response
 };
 
-var formatError = function (error) {
-
-}
-
 exports.handler = async function (event, context) {
     console.log('>  query-lambda called');
     console.log(`event: ${JSON.stringify(event, null, 2)}`);
     try {
-        const item = await findItem(event.hash);
+        const item = await findItem(event.pathParameters.proxy);
         return okResponse(item);
     }
     catch (err) {
