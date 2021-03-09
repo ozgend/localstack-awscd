@@ -17,5 +17,5 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_EXECUTION_ENV=True
     volumes:
-      - "/d/Dev/denolk-hive/localstack-awscd/localstack-compose/volume/tmp/localstack:/tmp/localstack"
+      - "./volume/tmp/localstack:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
