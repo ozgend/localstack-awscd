@@ -1,0 +1,16 @@
+{
+  "name": "sample-streamer",
+  "version": "1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "ozgend",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.738.0",
+    "uuid": "^3.3.2"
+  }
+}
