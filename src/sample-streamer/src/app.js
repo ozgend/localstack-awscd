@@ -12,4 +12,4 @@ const streamGenerator = () => {
   }]);
 };
 
-setInterval(streamGenerator, 1000);
+setInterval(streamGenerator, 13);

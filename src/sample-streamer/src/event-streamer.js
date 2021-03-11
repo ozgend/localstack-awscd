@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const _period = 2;
+const _period = 250;
 const _stream = 'transaction-stream';
 const _queue = [];
 
