@@ -15,7 +15,7 @@ $ (cd infrastructure && terraform init && terraform apply -auto-approve)
 
 ### build & publish lambda assets
 ```bash 
-$ (cd src && sudo ./pack.sh APP-lambda VERSION)
+$ (cd src && ./pack.sh APP-lambda VERSION)
 ```
 
 ### deploy lambda
@@ -29,3 +29,25 @@ $ (cd src/.deploy/APP-lambda && terraform apply -var="lambda_version=VERSION" -a
 $ (cd src/.deploy/APP-lambda && terraform destroy)
 $ (cd infrastructure && terraform destroy)
 ```
+
+---
+
+## demo
+
+- **query-lambda**
+
+| cli | |
+| -- | -- |
+| pack | `(cd src && ./pack.sh query-lambda v1)` |
+| deploy | `(cd src/.deploy/query-lambda && terraform apply -var="lambda_version=v1" -auto-approve)` |
+| request | `curl http://localhost:4566/restapis/7erxslkvic/test/_user_request_/HASH` |
+| logs | `aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/query-lambda --follow` |
+
+
+- **consumer-lambda**
+
+| cli | |
+| -- | -- |
+| pack | `(cd src && ./pack.sh consumer-lambda v1)` |
+| deploy | `(cd src/.deploy/consumer-lambda && terraform apply -var="lambda_version=v1" -auto-approve)` |
+| logs | `aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/consumer-lambda --follow` |
