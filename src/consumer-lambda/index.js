@@ -1,26 +1,34 @@
 const AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-east-1', credentials: { accessKeyId: 'mock', secretAccessKey: 'mock' } });
-const db = new AWS.DynamoDB({ apiVersion: '2012-08-10', endpoint: 'http://localhost:4566' });
+const db = new AWS.DynamoDB({ apiVersion: '2012-08-10', endpoint: `http://${process.env.LOCALSTACK_HOSTNAME}:4566` });
+
+const processRecord = async (record) => {
+    const transaction = JSON.parse(Buffer.from(record.kinesis.data, 'base64').toString('utf8'));
+    const dynamoItem = {
+        TableName: 'transactions',
+        Item: {
+            'hash': { S: transaction.hash },
+            'amount': { N: `${transaction.amount}` },
+            'timestamp': { N: `${transaction.timestamp}` }
+        }
+    };
+
+    try {
+        await db.putItem(dynamoItem).promise();
+    }
+    catch (err) {
+        console.error(`error persisting transaction ${transaction.hash}`, err);
+    }
+};
 
 exports.handler = async function (event, context) {
-    // console.log('++++++++++++++++++++++  consumer-lambda called');
+    console.log('++++++++++++++++++++++  consumer-lambda called');
+    // console.log(`consumer-lambda env: ${JSON.stringify(process.env, null, 2)}`);
     // console.log(`event: ${JSON.stringify(event, null, 2)}`);
 
-    const items = event.Records.map(record => {
-        const transaction = Buffer.from(record.kinesis.data, 'base64').toString('ascii');
-        return {
-            TableName: 'transactions',
-            Item: {
-                'hash': { S: transaction.hash },
-                'amount': { N: `${transaction.amount}` },
-                'timestamp': { N: `${transaction.timestamp}` }
-            }
-        };
-    });
+    await Promise.all(event.Records.map(async (record) => {
+        return await processRecord(record);
+    }));
 
-    for (let i = 0; i < items.length; i++) {
-        await db.putItem(items[i]).promise();
-    }
-
-    return `consumed ${items.length} items`;
+    return event.Records.length;
 };
