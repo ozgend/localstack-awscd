@@ -1,22 +1,24 @@
 const AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-east-1' });
-const db = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+AWS.config.update({ region: 'us-east-1', credentials: { accessKeyId: 'mock', secretAccessKey: 'mock' } });
+const db = new AWS.DynamoDB({ apiVersion: '2012-08-10', endpoint: 'http://localhost:4566' });
 
-const findItem = async (hash) => {
+
+const findTransaction = async (hash) => {
     var param = {
         TableName: 'transactions',
         Key: {
-            'hash': { N: '001' }
+            'hash': { S: hash }
         },
         ProjectionExpression: 'ATTRIBUTE_NAME'
     };
 
     try {
-        const data = await db.getItem(param).promise();
-        return data.Item;
+        const transaction = await db.getItem(param).promise();
+        console.log(`hash found ${hash}`, err);
+        return transaction.Item;
     }
     catch (err) {
-        console.log(`> hash not found ${hash}`, err);
+        console.log(`hash not found ${hash}`, err);
         return { hash };
     }
 };
@@ -47,13 +49,16 @@ const errorResponse = (err) => {
 };
 
 exports.handler = async function (event, context) {
-    console.log('>  query-lambda called');
-    console.log(`event: ${JSON.stringify(event, null, 2)}`);
+    console.log(`query-lambda: $LOCALSTACK_HOSTNAME: ${process.env.LOCALSTACK_HOSTNAME}`);
+
+    // console.log('>  query-lambda called');
+    // console.log(`event: ${JSON.stringify(event, null, 2)}`);
     try {
-        const item = await findItem(event.pathParameters.proxy);
+        const item = await findTransaction(event.pathParameters.proxy);
         return okResponse(item);
     }
     catch (err) {
+        console.log('query-lambda error:');
         console.error(err);
         return errorResponse(err);
     }
