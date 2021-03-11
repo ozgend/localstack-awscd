@@ -1,0 +1,69 @@
+[LATEST]27153b2e START RequestId: 3bd5f723-0296-1d10-5d73-eaff9e256ee0 Version: $LATEST
+[LATEST]27153b2e
+[LATEST]27153b2e 2021-03-11T21:35:48.206Z	3bd5f723-0296-1d10-5d73-eaff9e256ee0	INFO	++++++++++++++++++++++  consumer-lambda called
+[LATEST]27153b2e 2021-03-11T21:35:48.212Z	3bd5f723-0296-1d10-5d73-eaff9e256ee0	INFO	consumer-lambda env: {
+[LATEST]27153b2e   "AWS_LAMBDA_FUNCTION_VERSION": "$LATEST",
+[LATEST]27153b2e   "EDGE_PORT": "4566",
+[LATEST]27153b2e   "HOSTNAME": "ab4cb85fe7d3",
+[LATEST]27153b2e   "_LAMBDA_CONTROL_SOCKET": "14",
+[LATEST]27153b2e   "AWS_LAMBDA_FUNCTION_TIMEOUT": "3",
+[LATEST]27153b2e   "LOCALSTACK_HOSTNAME": "192.168.65.2",
+[LATEST]27153b2e   "AWS_LAMBDA_LOG_GROUP_NAME": "/aws/lambda/consumer-lambda",
+[LATEST]27153b2e   "LAMBDA_TASK_ROOT": "/var/task",
+[LATEST]27153b2e   "LD_LIBRARY_PATH": "/var/lang/lib:/lib64:/usr/lib64:/var/runtime:/var/runtime/lib:/var/task:/var/task/lib:/opt/lib",
+[LATEST]27153b2e   "AWS_LAMBDA_RUNTIME_API": "127.0.0.1:9001",
+[LATEST]27153b2e   "AWS_LAMBDA_LOG_STREAM_NAME": "2021/03/11/[$LATEST]df629ec1e926fa8858b276765dbe36ae",
+[LATEST]27153b2e   "_LAMBDA_SHARED_MEM_FD": "11",
+[LATEST]27153b2e   "AWS_EXECUTION_ENV": "AWS_Lambda_nodejs12.x",
+[LATEST]27153b2e   "_LAMBDA_RUNTIME_LOAD_TIME": "1530232235231",
+[LATEST]27153b2e   "AWS_XRAY_DAEMON_ADDRESS": "169.254.79.2:2000",
+[LATEST]27153b2e   "AWS_LAMBDA_FUNCTION_NAME": "consumer-lambda",
+[LATEST]27153b2e   "PATH": "/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin",
+[LATEST]27153b2e   "_LAMBDA_LOG_FD": "9",
+[LATEST]27153b2e   "_LAMBDA_SERVER_PORT": "5119",
+[LATEST]27153b2e   "AWS_DEFAULT_REGION": "us-east-1",
+[LATEST]27153b2e   "PWD": "/var/task",
+[LATEST]27153b2e   "AWS_SECRET_ACCESS_KEY": "",
+[LATEST]27153b2e   "LAMBDA_RUNTIME_DIR": "/var/runtime",
+[LATEST]27153b2e   "LANG": "en_US.UTF-8",
+[LATEST]27153b2e   "NODE_PATH": "/opt/nodejs/node12/node_modules:/opt/nodejs/node_modules:/var/runtime/node_modules:/var/runtime:/var/task",
+[LATEST]27153b2e   "TZ": ":UTC",
+[LATEST]27153b2e   "AWS_REGION": "us-east-1",
+[LATEST]27153b2e   "NODE_TLS_REJECT_UNAUTHORIZED": "0",
+[LATEST]27153b2e   "AWS_ACCESS_KEY_ID": "",
+[LATEST]27153b2e   "SHLVL": "0",
+[LATEST]27153b2e   "HOME": "/home/sbx_user1051",
+[LATEST]27153b2e   "AWS_LAMBDA_FUNCTION_INVOKED_ARN": "arn:aws:lambda:us-east-1:000000000000:function:consumer-lambda",
+[LATEST]27153b2e   "_AWS_XRAY_DAEMON_ADDRESS": "169.254.79.2",
+[LATEST]27153b2e   "_AWS_XRAY_DAEMON_PORT": "2000",
+[LATEST]27153b2e   "_X_AMZN_TRACE_ID": "Root=1-dc99d00f-c079a84d433534434534ef0d;Parent=91ed514f1e5c03b2;Sampled=1",
+[LATEST]27153b2e   "_LAMBDA_SB_ID": "7",
+[LATEST]27153b2e   "AWS_XRAY_CONTEXT_MISSING": "LOG_ERROR",
+[LATEST]27153b2e   "_LAMBDA_CONSOLE_SOCKET": "16",
+[LATEST]27153b2e   "AWS_LAMBDA_COGNITO_IDENTITY": "{}",
+[LATEST]27153b2e   "_HANDLER": "index.handler",
+[LATEST]27153b2e   "AWS_LAMBDA_FUNCTION_MEMORY_SIZE": "1536",
+[LATEST]27153b2e   "AWS_LAMBDA_EVENT_BODY": "{\"Records\": [{\"eventID\": \"shardId-000000000000:49616247122985354203088580789082945489614716940222201858\", \"eventSourceARN\": \"arn:aws:kinesis:us-east-1:000000000000:stream/transaction-stream\", \"eventSource\": \"aws:kinesis\", \"eventVersion\": \"1.0\", \"eventName\": \"aws:kinesis:record\", \"invokeIdentityArn\": \"arn:aws:iam::000000000000:role/lambda-role\", \"awsRegion\": \"us-east-1\", \"kinesis\": {\"approximateArrivalTimestamp\": 1615498545.320187, \"data\": \"eyJoYXNoIjoiNDFjNWRiZjYtYjBlMi00ZWY1LTlmZjUtMDIyMDMzNzg3YzgzIiwiYW1vdW50Ijo5MCwidGltZXN0YW1wIjoxNjE1NDk4NTQ1MjY5fQ==\", \"partitionKey\": \"p_1615498545269\", \"sequenceNumber\": \"49616247122985354203088580789082945489614716940222201858\"}}]}"
+[LATEST]27153b2e }
+[LATEST]27153b2e 2021-03-11T21:35:48.311Z	3bd5f723-0296-1d10-5d73-eaff9e256ee0	INFO	error persisting transaction undefined ValidationException: Supplied AttributeValue is empty, must contain exactly one of the supported datatypes
+[LATEST]27153b2e     at Request.extractError (/var/runtime/node_modules/aws-sdk/lib/protocol/json.js:52:27)
+[LATEST]27153b2e     at Request.callListeners (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:106:20)
+[LATEST]27153b2e     at Request.emit (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:78:10)
+[LATEST]27153b2e     at Request.emit (/var/runtime/node_modules/aws-sdk/lib/request.js:688:14)
+[LATEST]27153b2e     at Request.transition (/var/runtime/node_modules/aws-sdk/lib/request.js:22:10)
+[LATEST]27153b2e     at AcceptorStateMachine.runTo (/var/runtime/node_modules/aws-sdk/lib/state_machine.js:14:12)
+[LATEST]27153b2e     at /var/runtime/node_modules/aws-sdk/lib/state_machine.js:26:10
+[LATEST]27153b2e     at Request.<anonymous> (/var/runtime/node_modules/aws-sdk/lib/request.js:38:9)
+[LATEST]27153b2e     at Request.<anonymous> (/var/runtime/node_modules/aws-sdk/lib/request.js:690:12)
+[LATEST]27153b2e     at Request.callListeners (/var/runtime/node_modules/aws-sdk/lib/sequential_executor.js:116:18) {
+[LATEST]27153b2e   code: 'ValidationException',
+[LATEST]27153b2e   time: 2021-03-11T21:35:48.297Z,
+[LATEST]27153b2e   requestId: '58122a4c-dc91-4ab1-b955-9bc2a148d844',
+[LATEST]27153b2e   statusCode: 400,
+[LATEST]27153b2e   retryable: false,
+[LATEST]27153b2e   retryDelay: 44.7228298383344
+[LATEST]27153b2e }
+[LATEST]27153b2e END RequestId: 3bd5f723-0296-1d10-5d73-eaff9e256ee0
+[LATEST]27153b2e
+[LATEST]27153b2e REPORT RequestId: 3bd5f723-0296-1d10-5d73-eaff9e256ee0	Init Duration: 3000.00 ms	Duration: 114.62 ms	Billed Duration: 115 ms	Memory Size: 1536 MB	Max Memory Used: 58 MB
+[LATEST]27153b2e
