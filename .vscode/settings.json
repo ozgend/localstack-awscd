@@ -2,8 +2,8 @@
     "deno.enable": false,
     "omnisharp.autoStart": false,
     "workbench.colorCustomizations": {
-        "activityBar.background": "#804b0f",
-        "titleBar.activeBackground": "#995311",
-        "titleBar.activeForeground": "#FFFCFD"
+        "activityBar.background": "#ca7609",
+        "titleBar.activeBackground": "#ca7609",
+        "titleBar.activeForeground": "#efefef"
     }
 }
