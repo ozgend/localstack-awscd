@@ -1,5 +1,9 @@
+resource "aws_s3_bucket" "lambda_storage" {
+  bucket = "app-consumer-lambda"
+}
+
 resource "aws_s3_bucket_object" "consumer_lambda_pack" {
-  bucket = var.lambda_bucket
+  bucket = aws_s3_bucket.lambda_storage.bucket
   key    = "consumer-lambda/${var.lambda_version}/lambda.zip"
   source = "../../.dist/consumer-lambda/${var.lambda_version}/lambda.zip"
   etag   = filemd5("../../.dist/consumer-lambda/${var.lambda_version}/lambda.zip")
