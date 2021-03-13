@@ -26,7 +26,7 @@ class EventStreamer {
     const records = items.map(item => {
       return {
         Data: JSON.stringify(item),
-        PartitionKey: `p_${item.timestamp}`
+        PartitionKey: `p_${item.ts}`
       };
     });
 
@@ -40,7 +40,9 @@ class EventStreamer {
         console.info(`kinesis error: ${err}`);
       }
       else {
-        console.info(`>> streamed ${records.length} events | [${items[0].hash}]`);
+        console.info(`>> streamed ${records.length} events`);
+        console.info(JSON.stringify(items.map(i => i.hash)));
+        console.info(`<<`);
       }
     });
   }
