@@ -1,5 +1,9 @@
+resource "aws_s3_bucket" "lambda_storage" {
+  bucket = "app-query-lambda"
+}
+
 resource "aws_s3_bucket_object" "query_lambda_pack" {
-  bucket = var.lambda_bucket
+  bucket = aws_s3_bucket.lambda_storage.bucket
   key    = "query-lambda/${var.lambda_version}/lambda.zip"
   source = "../../.dist/query-lambda/${var.lambda_version}/lambda.zip"
   etag   = filemd5("../../.dist/query-lambda/${var.lambda_version}/lambda.zip")

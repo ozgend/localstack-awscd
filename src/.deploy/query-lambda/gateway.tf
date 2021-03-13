@@ -64,6 +64,10 @@ resource "aws_lambda_permission" "apigw" {
   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
 }
 
-output "base_url" {
-  value = aws_api_gateway_deployment.api_deploy.invoke_url
+output "api_id" {
+  value = aws_api_gateway_deployment.api_deploy.rest_api_id
+}
+
+output "endpoint" {
+  value = "http://localhost:4566/restapis/${aws_api_gateway_deployment.api_deploy.rest_api_id}/test/_user_request_/"
 }

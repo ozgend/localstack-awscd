@@ -31,17 +31,5 @@ provider "aws" {
 }
 
 variable "lambda_version" {
-
-}
-
-variable "region" {
-  default = "us-east-1"
-}
-
-variable "accountId" {
-  default = "000000000000"
-}
-
-variable "lambda_bucket" {
-  default = "denolk-lambda-storage"
+  default = "v0"
 }

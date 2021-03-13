@@ -9,7 +9,7 @@ const processRecord = async (record) => {
         Item: {
             'hash': { S: transaction.hash },
             'amount': { N: `${transaction.amount}` },
-            'timestamp': { N: `${transaction.timestamp}` }
+            'ts': { N: `${transaction.ts}` }
         }
     };
 

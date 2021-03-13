@@ -3,7 +3,7 @@ version: '3.1'
 services:
   localstack:
     container_name: "localstack-awscd"
-    image: localstack/localstack-full
+    image: localstack/localstack:v12-stable
     network_mode: bridge
     privileged: true
     ports:

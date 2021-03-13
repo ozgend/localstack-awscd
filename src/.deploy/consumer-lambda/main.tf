@@ -31,13 +31,5 @@ provider "aws" {
 }
 
 variable "lambda_version" {
-
-}
-
-variable "lambda_bucket" {
-  default = "denolk-lambda-storage"
-}
-
-locals {
-  consumer_lambda_zip_path = "/d/Dev/denolk-hive/localstack-awscd/src/.dist/consumer-lambda/${var.lambda_version}/lambda.zip"
+  default = "v0"
 }
