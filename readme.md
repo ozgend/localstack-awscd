@@ -40,7 +40,7 @@ $ (cd infrastructure && terraform destroy)
 | -- | -- |
 | pack | `(cd src && ./pack.sh query-lambda v1)` |
 | deploy | `(cd src/.deploy/query-lambda && terraform apply -var="lambda_version=v1" -auto-approve)` |
-| request | `curl http://localhost:4566/restapis/7erxslkvic/test/_user_request_/HASH` |
+| request | `curl http://localhost:4566/restapis/[API_ID]/test/_user_request_/HASH` |
 | logs | `aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/query-lambda --follow` |
 
 
