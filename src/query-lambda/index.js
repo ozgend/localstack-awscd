@@ -66,11 +66,11 @@ exports.handler = async function (event, context) {
         }
     }
 
-    const hash = event.pathParameters.proxy;
+    const hash = event.pathParameters.proxy || '';
     let result;
 
     try {
-        if (hash === 'all') {
+        if (hash === '') {
             result = await scanTransactions();
         }
         else {

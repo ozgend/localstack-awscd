@@ -34,6 +34,14 @@ $ (cd infrastructure && terraform destroy)
 
 ## demo
 
+### initialization 
+```bash
+chmod +x ./_init.sh && ./_init.sh
+```
+
+
+### lambda deployments
+
 - **query-lambda**
 
 | cli | |

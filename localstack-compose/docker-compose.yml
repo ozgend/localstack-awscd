@@ -8,12 +8,12 @@ services:
     privileged: true
     ports:
       - "4566:4566"
-      - "8080:8080"
     environment:
       - SERVICES=
       - DATA_DIR=/tmp/localstack
-      - PORT_WEB_UI=8080
       - LAMBDA_EXECUTOR=docker-reuse
+      # - LAMBDA_REMOTE_DOCKER=false
+      # - LAMBDA_REMOVE_CONTAINERS=false
       - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_EXECUTION_ENV=True
     volumes:
