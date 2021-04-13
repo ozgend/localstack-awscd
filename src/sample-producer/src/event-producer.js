@@ -3,7 +3,7 @@ const _period = 250;
 const _stream = 'transaction-stream';
 const _queue = [];
 
-class EventStreamer {
+class Streamer {
   constructor() {
     this._kinesis = new AWS.Kinesis({ region: 'us-east-1', endpoint: 'http://localhost:4566' });
   }
@@ -48,4 +48,4 @@ class EventStreamer {
   }
 };
 
-module.exports = EventStreamer;
+module.exports = Streamer;
