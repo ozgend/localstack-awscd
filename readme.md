@@ -1,5 +1,7 @@
-# localstack-iac-sample
-sample iac with localstack for aws community day
+# deployment with localstack & iac
+aws@localhost: localstack + iac
+
+sample deployment scenario with localstack and terraform / aws community day 2021
 
 ---
 
