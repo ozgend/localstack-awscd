@@ -9,11 +9,9 @@ services:
     ports:
       - "4566:4566"
     environment:
-      - SERVICES=
+      - SERVICES=apigateway,cloudwatch,dynamodb,iam,lambda,kinesis,logs,s3,sns,sts
       - DATA_DIR=/tmp/localstack
       - LAMBDA_EXECUTOR=docker-reuse
-      # - LAMBDA_REMOTE_DOCKER=false
-      # - LAMBDA_REMOVE_CONTAINERS=false
       - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_EXECUTION_ENV=True
     volumes:
