@@ -1,6 +1,7 @@
 # s3.tf
 
 provider "aws" {
+  version                     = "3.37.0"
   access_key                  = "mock_access_key"
   secret_key                  = "mock_secret_key"
   region                      = "us-east-1"
